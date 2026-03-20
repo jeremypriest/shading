@@ -1,0 +1,5 @@
+[wrap-git]
+url = https://github.com/attcs/Octree.git
+revision = master
+depth = 1
+method = cmake
