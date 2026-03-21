@@ -18,6 +18,9 @@ program shading
             import :: c_float
             real(kind=c_float), dimension(3), intent(in) :: ray
         end subroutine
+        subroutine destroy_octree() &
+        bind(C, name='interop_destroy_octree')
+        end subroutine
     end interface
   
     real(kind=c_float), dimension(:, :), allocatable :: pt_cloud
@@ -34,6 +37,7 @@ program shading
     ray_to_check = [1.0, 2.0, 3.0]
     call get_intersecting_voxel_elements(ray_to_check)
 
+    call destroy_octree()
     deallocate(pt_cloud)
 
     contains
