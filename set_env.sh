@@ -9,4 +9,4 @@ export CXX=g++-15
 
 # Meson
 pip install meson cmake ninja
-brew install pkg-config
+# brew install pkg-config
