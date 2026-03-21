@@ -3,19 +3,20 @@ project('shading',
         default_options: ['buildtype=plain',
                           'warning_level=3',
                           'optimization=2',
-                          'cpp_std=c++20'])
+                          'cpp_std=c++17'])
 
 arch_flag = '-march=native'
 
 cmake = import('cmake')
-octree = cmake.subproject('Octree').dependency('OrthoTree')
-octree_include_dir = include_directories('./subprojects/Octree/include/orthotree')
+octree = cmake.subproject('pcl').dependency('pcl_octree')
+octree_include_dir_1 = include_directories('./subprojects/pcl/octree/include')
+octree_include_dir_2 = include_directories('./subprojects/pcl/common/include')
 
 octree_interop_lib = static_library('octree_interop',
                                     sources: ['octree_interop.cpp'],
                                     cpp_args: arch_flag,
                                     dependencies: [octree],
-                                    include_directories: octree_include_dir,
+                                    include_directories: [octree_include_dir_1, octree_include_dir_2],
                                     )
 
 executable('main',

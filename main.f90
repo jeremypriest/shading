@@ -5,11 +5,10 @@ program shading
 
     interface
         subroutine build_octree(point_cloud, &
-                                n_points, &
-                                depth) &
+                                n_points) &
                                 bind(C, name='interop_build_octree')
             import :: c_float, c_int
-            integer(kind=c_int), value :: n_points, depth
+            integer(kind=c_int), value :: n_points
             real(kind=c_float), dimension(3, n_points) :: point_cloud
         end subroutine
         subroutine check_ray(ray) &
@@ -27,11 +26,9 @@ program shading
     call random_init(repeatable=.true., image_distinct=.false.)
     call random_number(pt_cloud)
 
-    call build_octree(pt_cloud, &
-                      size(pt_cloud, 2), &
-                      3)
+    call build_octree(pt_cloud, size(pt_cloud, 2))
 
-    ray_to_check = [1.1, 2.2, 3.3]
+    ray_to_check = [1.0, 2.0, 3.0]
     call check_ray(ray_to_check)
 
     deallocate(pt_cloud)
