@@ -21,8 +21,8 @@ program shading
     end interface
   
     real(kind=c_float), dimension(:, :), allocatable :: pt_cloud
-    integer, parameter :: n_points = 1000000
-    real(kind=c_float), parameter :: resolution = 0.1
+    integer, parameter :: n_points = 10000000
+    real(kind=c_float), parameter :: resolution = 0.01
     real(kind=c_float), dimension(3) :: ray_to_check
 
     allocate(pt_cloud(3, n_points))
