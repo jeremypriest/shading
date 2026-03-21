@@ -6,6 +6,8 @@ project('shading',
                           'cpp_std=c++17'])
 
 arch_flag = '-march=native'
+add_project_arguments(arch_flag, language: ['fortran', 'cpp'])
+add_project_link_arguments(arch_flag, language: ['fortran', 'cpp'])
 
 cmake = import('cmake')
 cmake_opts = cmake.subproject_options()
@@ -34,14 +36,11 @@ octree_include_dirs = include_directories('./subprojects/pcl/octree/include',
 
 octree_interop_lib = static_library('octree_interop',
                                     sources: ['octree_interop.cpp'],
-                                    cpp_args: arch_flag,
                                     dependencies: [octree],
                                     include_directories: octree_include_dirs,
                                     )
 
 executable('main',
            sources: ['main.f90'],
-           fortran_args: arch_flag,
-           link_args: arch_flag,
            link_with: [octree_interop_lib],
            )
