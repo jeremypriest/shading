@@ -51,7 +51,3 @@ extern "C" void interop_get_intersecting_voxel_elements(float* ray) {
     //     std::cout << intersected_voxel_point_indices[i_point] << std::endl;
     // }
 }
-
-extern "C" void interop_destroy_octree() {
-    octree.reset();
-}
