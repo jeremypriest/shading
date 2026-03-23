@@ -1,5 +1,4 @@
 # FSL modules
-module load intel-oneapi/2023.2.4
 module load python/3.12
 
 # Make venv
