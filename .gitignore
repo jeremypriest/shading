@@ -3,3 +3,6 @@
 
 # Meson
 .wraplock
+
+# Python
+.venv
