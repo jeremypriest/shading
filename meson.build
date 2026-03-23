@@ -12,8 +12,7 @@ add_project_arguments(arch_flag,
 add_project_link_arguments(arch_flag, language: ['fortran', 'cpp'])
 
 octree = dependency('pcl_octree')
-octree_include_dirs = include_directories('./vcpkg/pcl/x64-linux/include')
-
+octree_include_dirs = include_directories('./pcl/x64-linux/include')
 octree_interop_lib = static_library('octree_interop',
                                     sources: ['octree_interop.cpp'],
                                     dependencies: [octree],
