@@ -27,6 +27,6 @@ cd vcpkg && ./bootstrap-vcpkg.sh
 export VCPKG_ROOT=`pwd`
 export PATH=$VCPKG_ROOT:$PATH
 cd ..
-vcpkg install pcl --x-install-root=pcl # --binarysource=clear
+vcpkg install pcl --x-install-root=pcl --binarysource=clear
 export PKG_CONFIG_PATH=`pwd`/pcl/x64-linux/lib/pkgconfig:$PKG_CONFIG_PATH
 # export PKG_CONFIG_PATH=`pwd`/pcl/x64-linux/debug/lib/pkgconfig:$PKG_CONFIG_PATH
