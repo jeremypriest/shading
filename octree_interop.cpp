@@ -5,7 +5,7 @@
 
 // Globals
 pcl::octree::OctreePointCloudSearch<pcl::PointXYZ>::Ptr octree;
-const Eigen::Vector3f zero_vector = {0.0f, 0.0f, 0.0f};
+const Eigen::Vector3f zero_vector = Eigen::Vector3f::Zero();
 
 // Refs:
 // - 2D array interop: https://stackoverflow.com/a/67986571

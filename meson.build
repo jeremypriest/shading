@@ -5,11 +5,12 @@ project('shading',
                           'optimization=2',
                           'cpp_std=c++17'])
 
-arch_flag = '-march=native'
+arch_flag = '-axCOMMON-AVX512,CORE-AVX512,CORE-AVX2'
 add_project_arguments(arch_flag,
                       '-traceback',
                       language: ['fortran', 'cpp'])
-add_project_link_arguments(arch_flag, language: ['fortran', 'cpp'])
+add_project_link_arguments(arch_flag,
+                           language: ['fortran', 'cpp'])
 
 octree = dependency('pcl_octree')
 octree_include_dirs = include_directories('./pcl/x64-linux/include')
