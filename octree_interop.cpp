@@ -4,7 +4,7 @@
 #include <pcl/octree/octree_search.h>
 
 // Globals
-pcl::octree::OctreePointCloudSearch<pcl::PointXYZ>::Ptr octree; // Pointer to Octree
+pcl::octree::OctreePointCloudSearch<pcl::PointXYZ>::Ptr octree;
 const Eigen::Vector3f zero_vector = {0.0f, 0.0f, 0.0f};
 
 // Refs:
@@ -47,7 +47,7 @@ extern "C" void interop_get_intersecting_voxel_elements(float* ray) {
     std::cout << "Number of voxels intersected by ray = " << n_intersected_voxels << std::endl;
     std::cout << "Number of points in voxels intersected by ray = " << intersected_voxel_point_indices.size() << std::endl;
     // std::cout << "Intersected voxel point indices:" << std::endl;
-    // for (long unsigned int i_point = 0; i_point < intersected_voxel_point_indices.size(); i_point++) {
+    // for (std::size_t i_point = 0; i_point < intersected_voxel_point_indices.size(); i_point++) {
     //     std::cout << intersected_voxel_point_indices[i_point] << std::endl;
     // }
 }
